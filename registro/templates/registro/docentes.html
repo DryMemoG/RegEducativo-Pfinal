@@ -1,0 +1,9 @@
+{% extends 'registro/base.html' %}
+{% block content %}
+  {% for docente in docentes %}
+    <div>
+        <p>Nombre: {{ docente.apellidos}}, {{docente.nombres}} </p>
+        <p>No de Carnet: {{ docente.noCarnet }}</p>
+    </div>
+  {% endfor %}
+{%endblock %}

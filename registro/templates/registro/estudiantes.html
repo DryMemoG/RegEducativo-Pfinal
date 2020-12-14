@@ -1,0 +1,10 @@
+{% extends 'registro/base.html' %}
+{% block content %}
+  {% for estudiante in estudiantes %}
+    <div>
+        <p>Nombre: {{ estudiante.apellidos}}, {{estudiante.nombres}} </p>
+        <p>No de Carnet: {{ estudiante.noCarnet }}</p>
+        <p> {{ estudiante.grado }}: {{ estudiante.seccion|linebreaksbr }}</p>
+    </div>
+  {% endfor %}
+{%endblock %}
