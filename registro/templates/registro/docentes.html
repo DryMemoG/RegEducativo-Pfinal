@@ -3,7 +3,7 @@
   {% for docente in docentes %}
     <div>
         <p>Nombre: {{ docente.apellidos}}, {{docente.nombres}} </p>
-        <p>No de Carnet: {{ docente.noCarnet }}</p>
+        <p>No de Carnet: {{ docente.noCarnet|linebreaksbr }}</p>
     </div>
   {% endfor %}
 {%endblock %}

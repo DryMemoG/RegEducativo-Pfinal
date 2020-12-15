@@ -1,0 +1,10 @@
+{% extends 'registro/base.html' %}
+{% block content %}
+  {% for asignacion in asignaciones %}
+    <div>
+        <p>Nombre: {{ asignacion.estudiate }} </p>
+        <p>Curso {{ asignacion.curso }}</p>
+        <p>Nota Final:  {{ asignacion.nota|linebreaksbr }}</p>
+    </div>
+  {% endfor %}
+{%endblock %}

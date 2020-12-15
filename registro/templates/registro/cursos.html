@@ -1,0 +1,10 @@
+{% extends 'registro/base.html' %}
+{% block content %}
+  {% for curso in cursos %}
+    <div>
+        <p>Curso: {{curso.nombre}} <h5>{{ curso.codigo }}</h5></p>
+        <p>Impartido por: {{ curso.docente }}</p>
+        <p>Grado: {{ curso.grado|linebreaksbr }}</p>
+    </div>
+  {% endfor %}
+{%endblock %}

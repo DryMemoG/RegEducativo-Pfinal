@@ -45,5 +45,6 @@ class Asignacion(models.Model):
     cod = models.CharField(max_length=25)
     estudiate= models.ForeignKey(Estudiante, related_name='Estudiante', on_delete=models.CASCADE)
     curso= models.ForeignKey(Curso, related_name='Curso',on_delete=models.CASCADE)
+    nota = models.CharField(max_length=3)
     def __str__(self):
         return self.cod
