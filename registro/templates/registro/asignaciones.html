@@ -6,6 +6,7 @@
         <tr>
           <th scope="col">Estudiante</th>
           <th scope="col">Curso</th>
+          <th scope="col">Grado</th>
           <th scope="col">Nota</th>
           <th scope="col"></th>
         </tr>
@@ -13,8 +14,9 @@
       <tbody>
       {% for asignacion in asignaciones %}
       <tr>
-        <th scope="row">{{asignacion.estudiate}}</th>
-        <td>{{asignacion.curso}}</td>
+        <th scope="row">{{asignacion.estudiate.apellidos}}, {{asignacion.estudiate.nombres}}</th>
+        <td>{{asignacion.curso.nombre}}</td>
+        <td>{{asignacion.curso.grado}}</td>
         <td>{{asignacion.nota}}</td>
         {% if user.is_authenticated %}
         <td><a href="{% url 'asignacion_edit' pk=asignacion.pk %}" class="btn btn-outline-warning" role="button" aria-disabled="true"><i class="material-icons">create</i></a></td>
