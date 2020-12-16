@@ -1,10 +1,20 @@
 {% extends 'registro/base.html' %}
 {% block content %}
-  {% for curso in cursos %}
-    <div>
-        <p>Curso: {{curso.nombre}} <h5>{{ curso.codigo }}</h5></p>
-        <p>Impartido por: {{ curso.docente }}</p>
-        <p>Grado: {{ curso.grado|linebreaksbr }}</p>
+  <div class="container">
+    <div class="row">
+    {% for curso in cursos %}
+      <div class="col tarjeta">
+        <div class="card tarjeta" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{curso.nombre}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{curso.codigo}}</h6>
+            <p class="card-text">Impartido por: {{curso.docente}} al grado de {{curso.grado}}</p>
+            <a href="#" class="card-link">Editar Curso</a>
+            <a href="#" class="card-link text-danger">Eliminar Curso</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
     </div>
-  {% endfor %}
+  </div>
 {%endblock %}
