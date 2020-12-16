@@ -3,6 +3,7 @@ from django.utils import timezone
 from .models import *
 from .forms import *
 from django.shortcuts import redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def inicio(request):
@@ -25,6 +26,7 @@ def asignaciones(request):
 
 
 #vistas a POST
+@login_required
 def estudiante_new(request):
     if request.method == "POST":
         form = EstudianteForm(request.POST)
@@ -35,7 +37,7 @@ def estudiante_new(request):
     else:
         form = EstudianteForm()
     return render(request, 'registro/estudiante_edit.html', {'form': form})
-
+@login_required
 def docente_new(request):
     if request.method == "POST":
         form = DocenteForm(request.POST)
@@ -46,7 +48,7 @@ def docente_new(request):
     else:
         form = DocenteForm()
     return render(request, 'registro/docente_edit.html', {'form': form})
-
+@login_required
 def curso_new(request):
     if request.method == "POST":
         form = CursoForm(request.POST)
@@ -57,7 +59,7 @@ def curso_new(request):
     else:
         form = CursoForm()
     return render(request, 'registro/curso_edit.html', {'form': form})
-
+@login_required
 def asignacion_new(request):
     if request.method == "POST":
         form = AsignacionForm(request.POST)
@@ -70,6 +72,7 @@ def asignacion_new(request):
     return render(request, 'registro/asignacion_edit.html', {'form': form})
 
 #vistas update
+@login_required
 def estudiante_edit(request,pk):
     estudiante = get_object_or_404(Estudiante, pk=pk)
     if request.method=="POST":
@@ -81,7 +84,7 @@ def estudiante_edit(request,pk):
     else:
         form = EstudianteForm(instance=estudiante)
     return render(request, 'registro/estudiante_edit.html',{'form': form})
-    
+@login_required
 def docente_edit(request,pk):
     docente = get_object_or_404(Docente, pk=pk)
     if request.method=="POST":
@@ -93,7 +96,7 @@ def docente_edit(request,pk):
     else:
         form = DocenteForm(instance=docente)
     return render(request, 'registro/docente_edit.html',{'form': form})
-    
+@login_required
 def curso_edit(request,pk):
     curso = get_object_or_404(Curso, pk=pk)
     if request.method=="POST":
@@ -105,7 +108,7 @@ def curso_edit(request,pk):
     else:
         form = CursoForm(instance=curso)
     return render(request, 'registro/curso_edit.html',{'form': form})
-
+@login_required
 def asignacion_edit(request,pk):
     asignacion = get_object_or_404(Asignacion, pk=pk)
     if request.method=="POST":
@@ -119,16 +122,17 @@ def asignacion_edit(request,pk):
     return render(request, 'registro/asignacion_edit.html',{'form': form})
 
 #vistas delete
+@login_required
 def estudiante_delete(request,pk):
     estudiante = get_object_or_404(Estudiante, pk=pk)
     estudiante.delete()
     return redirect('estudiantes')
-
+@login_required
 def docente_delete(request,pk):
     docente = get_object_or_404(Docente, pk=pk)
     docente.delete()
     return redirect('docentes')
-
+@login_required
 def curso_delete(request,pk):
     curso = get_object_or_404(Curso, pk=pk)
     curso.delete()

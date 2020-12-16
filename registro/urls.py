@@ -18,4 +18,5 @@ urlpatterns = [
     path('asignaciones/', views.asignaciones, name='asignaciones'),
     path('asignacion/new', views.asignacion_new, name='asignacion_new'),
     path('asignacion/<int:pk>/edit/', views.asignacion_edit, name='asignacion_edit'),
+    
 ]

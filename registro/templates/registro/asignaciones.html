@@ -16,7 +16,9 @@
         <th scope="row">{{asignacion.estudiate}}</th>
         <td>{{asignacion.curso}}</td>
         <td>{{asignacion.nota}}</td>
+        {% if user.is_authenticated %}
         <td><a href="{% url 'asignacion_edit' pk=asignacion.pk %}" class="btn btn-outline-warning" role="button" aria-disabled="true"><i class="material-icons">create</i></a></td>
+        {%endif%}
       </tr>
       {% endfor %}
     {%endblock %}
