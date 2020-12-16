@@ -21,8 +21,8 @@
         <td>{{estudiante.nombres}}</td>
         <td>{{ estudiante.grado }}: {{ estudiante.seccion}}</td>
         <td>{{estudiante.fecha_nac}}</td>
-        <td><button type="button" class="btn btn-outline-warning">Editar</button></td>
-        <td><button type="button" class="btn btn-outline-danger">Eliminar</button</td>
+        <td><a href="{% url 'estudiante_edit' pk=estudiante.pk %}" class="btn btn-outline-warning" role="button" aria-disabled="true"><i class="material-icons">create</i></a></td>
+        <td><a href="{% url 'estudiante_delete' pk=estudiante.pk %}" class="btn btn-outline-danger" role="button" aria-disabled="true"><i class="material-icons">delete</i></a></td>
       </tr>
       {% endfor %}
     {%endblock %}
