@@ -1,9 +1,27 @@
 {% extends 'registro/base.html' %}
 {% block content %}
-  {% for docente in docentes %}
-    <div>
-        <p>Nombre: {{ docente.apellidos}}, {{docente.nombres}} </p>
-        <p>No de Carnet: {{ docente.noCarnet|linebreaksbr }}</p>
-    </div>
-  {% endfor %}
-{%endblock %}
+<div class="container tabla">
+    <table class="table table-dark tabla">
+      <thead>
+        <tr>
+          <th scope="col">Carnet</th>
+          <th scope="col">Apellidos</th>
+          <th scope="col">Nombres</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for docente in docentes %}
+      <tr>
+        <th scope="row">{{docente.noCarnet}}</th>
+        <td>{{docente.apellidos}}</td>
+        <td>{{docente.nombres}}</td>
+        <td><button type="button" class="btn btn-outline-warning" ><i class="material-icons">create</i></button></td>
+        <td><button type="button" class="btn btn-outline-danger"><i class="material-icons">delete</i></button</td>
+      </tr>
+      {% endfor %}
+    {%endblock %}
+      </tbody>
+    </table>
+</div>
