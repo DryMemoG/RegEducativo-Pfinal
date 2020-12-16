@@ -1,6 +1,6 @@
 runtime: python38
 
-service: educacion
+#service: educacion
 
 
 automatic_scaling:
